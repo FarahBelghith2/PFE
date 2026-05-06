@@ -60,8 +60,6 @@ PFE/
 ├── Business_Understanding_Data_Understanding.ipynb
 ├── XGBOOST2.ipynb
 └── xgboost_model.pkl
-```
----
 
 Description des fichiers
 README.md : documentation du projet
@@ -71,7 +69,7 @@ Nettoyage_données.ipynb : nettoyage et préparation initiale des données
 Préparation_des_données.ipynb : enrichissement des données
 Business_Understanding_Data_Understanding.ipynb : compréhension métier et compréhension des données
 xgboost_model.pkl : modèle final sauvegardé
-
+```
 ---
 
 ⚙️ Étapes du projet
@@ -124,6 +122,7 @@ Indique si une date est en vacances scolaires.
 5) /evenement
 Retourne les événements détectés pour une date donnée.
 ---
+
 🧠 Fonctionnement général
 Le système fonctionne en plusieurs étapes :
 
@@ -137,7 +136,9 @@ Le système fonctionne en plusieurs étapes :
 4. Le modèle prédit un taux de demande / remplissage relatif
 5. Ce taux est interprété sous forme de niveau de demande (faible, moyenne, forte, très forte)
 6. Une décision marketing est générée selon la demande estimée
+
 ---
+
 🔧 Paramètres à modifier dans app.py
 1) Localisation météo
 Modifier :
