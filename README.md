@@ -49,6 +49,7 @@ Le modèle principal retenu pour l’exploitation est **XGBoost**.
 ---
 
 ## 📂 Structure du projet
+```text
 PFE/
 │
 ├── README.md
@@ -142,11 +143,13 @@ Modifier :
 LATITUDE = .....
 LONGITUDE = .....
 TIMEZONE = "Europe/Paris"
+
 ➡️ Remplacer par la latitude, la longitude et le fuseau horaire de la ville concernée.
 
-2) Vacances scolaires
+3) Vacances scolaires
 Modifier :
 ZONE_SCOLAIRE = "C"
+
 ➡️ La logique actuelle est basée sur le calendrier scolaire français.
 
 Si le pays n’utilise pas ce système, il faudra :
