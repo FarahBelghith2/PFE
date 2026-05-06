@@ -208,6 +208,7 @@ Pour une autre utilisation, remplacer par :
 Modifier:
 
 BIG_EVENT_KEYWORDS = [...]
+
 ➡️ Cette liste contient les mots-clés utilisés pour repérer les événements importants.
 
 Exemples actuels :
@@ -217,7 +218,9 @@ finale
 tournoi
 match
 olympique
+
 Si le projet est utilisé dans un autre pays, il faudra :
+
 garder les mots-clés utiles,
 supprimer ceux qui ne servent pas,
 ajouter des mots-clés locaux
