@@ -165,8 +165,8 @@ L'algorithme scanne le nom des événements pour évaluer leur impact. Ajoutez d
 
 BIG_EVENT_KEYWORDS = [
 
-   "concert", "festival", "spectacle", "show",
-   
+    "concert", "festival", "spectacle", "show",
+    
     "champion", "champions league", "ligue des champions",
     
     "coupe", "cup", "finale", "tournoi", "match",
