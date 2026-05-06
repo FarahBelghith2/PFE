@@ -73,6 +73,7 @@ xgboost_model.pkl : modèle final sauvegardé
 ---
 
 ⚙️ Étapes du projet
+
 Le projet suit plusieurs étapes :
 
 1)Collecte et préparation des données
