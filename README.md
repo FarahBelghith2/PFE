@@ -70,7 +70,7 @@ PFE/
 ---
 
 🚀 Installation & Lancement
-1. Cloner le dépôt
+1.Cloner le dépôt
 git clone https://github.com/VOTRE_USERNAME/PFE.git
 cd PFE
 
@@ -90,9 +90,13 @@ http://127.0.0.1:5000
 L'architecture est construite en micro-services :
 
 •POST /predict : Prédit la demande et propose une décision marketing (taux, niveau, promo).
+
 •POST /meteo : Retourne la météo réelle ou prévue associée à une date et une heure.
+
 •POST /jour_ferie : Indique si une date est un jour férié en France.
+
 •POST /vacances : Indique si une date tombe pendant les vacances scolaires (Zone C).
+
 •POST /evenement : Retourne les gros événements locaux détectés pour une date donnée.
 
 ---
@@ -170,9 +174,13 @@ Le système permet d’obtenir automatiquement :
 Lors d'un appel à /predict, le système génère :
 
 •Un taux de remplissage prévu (ex: 82%).
+
 •Un niveau de demande (faible, moyenne, forte, très forte).
+
 •La détection du contexte (météo pluvieuse, vacances actives, match ce soir).
+
 •Une décision marketing (Dynamic Pricing).
+
 Exemple de logique métier:
 
 si la demande prévue est faible → proposer une promotion,
