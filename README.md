@@ -132,57 +132,84 @@ Retourne les événements détectés pour une date donnée.
 ---
 
 🧠 Fonctionnement général
+
 Le système fonctionne en plusieurs étapes :
 
 1.L’utilisateur envoie une date, une heure et un type de terrain
+
 2.L’API récupère les informations externes :
 -météo
 -jour férié
 -vacances scolaires
 -événements
+
 3.Les variables nécessaires au modèle sont construites automatiquement
+
 4. Le modèle prédit un taux de demande / remplissage relatif
+  
 5. Ce taux est interprété sous forme de niveau de demande (faible, moyenne, forte, très forte)
+  
 6. Une décision marketing est générée selon la demande estimée
 
 ---
 
 🔧 Paramètres à modifier dans app.py
+
 1) Localisation météo
+   
 Modifier :
+
 LATITUDE = .....
 LONGITUDE = .....
 TIMEZONE = "Europe/Paris"
+
 ➡️ Remplacer par la latitude, la longitude et le fuseau horaire de la ville concernée.
 
 2) Vacances scolaires
+   
 Modifier :
+
 ZONE_SCOLAIRE = "C"
+
 ➡️ La logique actuelle est basée sur le calendrier scolaire français.
+
 Si le pays n’utilise pas ce système, il faudra :
+
 -remplacer la source
+
 -ou modifier complètement la logique de vacances scolaires
 
-4) Jours fériés
+3) Jours fériés
+
 Modifier :
+
 ZONE_FERIES = "metropole"
+
 ➡️ La logique actuelle correspond aux jours fériés français.
+
 Pour un autre pays, il faudra utiliser une source locale adaptée.
 
-6) Événements publics
+4) Événements publics
+
 Modifier :
+
 DEPARTEMENT = "Paris"
 VILLE = None
+
 ➡️ Ces paramètres servent à cibler les événements détectés.
+
 Pour une autre utilisation, remplacer par :
 -la ville concernée
 -la région concernée
 -ou adapter complètement la logique si le pays ne fonctionne pas avec ces champs
 
 5) Mots-clés d’événements
+   
 Modifier:
+
 BIG_EVENT_KEYWORDS = [...]
 ➡️ Cette liste contient les mots-clés utilisés pour repérer les événements importants.
+
 Exemples actuels :
 concert
 festival
