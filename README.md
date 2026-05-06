@@ -123,7 +123,7 @@ Indique si une date est en vacances scolaires.
 
 5) /evenement
 Retourne les événements détectés pour une date donnée.
-
+---
 🧠 Fonctionnement général
 Le système fonctionne en plusieurs étapes :
 
@@ -137,37 +137,35 @@ Le système fonctionne en plusieurs étapes :
 4. Le modèle prédit un taux de demande / remplissage relatif
 5. Ce taux est interprété sous forme de niveau de demande (faible, moyenne, forte, très forte)
 6. Une décision marketing est générée selon la demande estimée
-
+---
 🔧 Paramètres à modifier dans app.py
 1) Localisation météo
 Modifier :
 LATITUDE = .....
 LONGITUDE = .....
 TIMEZONE = "Europe/Paris"
-
 ➡️ Remplacer par la latitude, la longitude et le fuseau horaire de la ville concernée.
 
 2) Vacances scolaires
 Modifier :
 ZONE_SCOLAIRE = "C"
-
 ➡️ La logique actuelle est basée sur le calendrier scolaire français.
-
 Si le pays n’utilise pas ce système, il faudra :
 -remplacer la source
 -ou modifier complètement la logique de vacances scolaires
-3) Jours fériés
+
+4) Jours fériés
 Modifier :
 ZONE_FERIES = "metropole"
 ➡️ La logique actuelle correspond aux jours fériés français.
 Pour un autre pays, il faudra utiliser une source locale adaptée.
-4) Événements publics
+
+6) Événements publics
 Modifier :
 DEPARTEMENT = "Paris"
 VILLE = None
 ➡️ Ces paramètres servent à cibler les événements détectés.
 Pour une autre utilisation, remplacer par :
-
 -la ville concernée
 -la région concernée
 -ou adapter complètement la logique si le pays ne fonctionne pas avec ces champs
@@ -177,20 +175,18 @@ Modifier:
 BIG_EVENT_KEYWORDS = [...]
 ➡️ Cette liste contient les mots-clés utilisés pour repérer les événements importants.
 Exemples actuels :
-
 concert
 festival
 finale
 tournoi
 match
 olympique
-
 Si le projet est utilisé dans un autre pays, il faudra :
-
 garder les mots-clés utiles,
 supprimer ceux qui ne servent pas,
 ajouter des mots-clés locaux
 
+---
 ## 📊 Résultats attendus
 Le système permet d’obtenir automatiquement :
 
@@ -204,6 +200,7 @@ si la demande prévue est faible → proposer une promotion,
 si la demande est forte → ne pas proposer de réduction,
 si le terrain est outdoor et que la météo est défavorable → ajuster la décision marketing.
 
+---
 ✅ Avantages du système
 Ce système permet à l’administrateur de :
 
@@ -213,6 +210,7 @@ améliorer l’occupation des terrains,
 prendre des décisions plus rapides,
 automatiser partiellement la logique marketing.
 
+---
 ⚠️ Limites actuelles
 Le projet présente encore certaines limites :
 
@@ -222,5 +220,6 @@ la logique des événements dépend des données disponibles dans les APIs exter
 la météo future peut être indisponible trop loin dans le temps,
 la généralisation à d’autres villes ou pays nécessite des adaptations.
 
+---
 👩‍💻 Auteur
 Projet réalisé dans le cadre d’un Projet de Fin d’Études (PFE).
