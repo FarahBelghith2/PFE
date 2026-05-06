@@ -140,9 +140,11 @@ TIMEZONE = "Europe/Paris"  # Remplacez par votre fuseau horaire (ex: "America/Ne
 
 
 2. Jours Fériés et Vacances
+   
 L'API utilise les bases gouvernementales françaises.
    
 ZONE_FERIES = "metropole"  # Options FR : "alsace-moselle", "guadeloupe", etc.
+
 ZONE_SCOLAIRE = "C"        # Zones FR : "A", "B", ou "C"
 
 (⚠️ Si vous déployez hors de France, il faudra modifier les URL des APIs dans les fonctions charger_jours_feries_france et charger_vacances_scolaires_officielles pour pointer vers l'Open Data de votre pays).
