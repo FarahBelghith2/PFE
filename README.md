@@ -135,7 +135,9 @@ Ouvrez app.py et modifiez les constantes suivantes :
 Par défaut, la météo interroge les coordonnées de Paris. Remplacez par vos coordonnées GPS :
 
 LATITUDE = 48.8566         # Remplacez par la latitude de votre ville
+
 LONGITUDE = 2.3522         # Remplacez par la longitude de votre ville
+
 TIMEZONE = "Europe/Paris"  # Remplacez par votre fuseau horaire (ex: "America/New_York")
 
 
