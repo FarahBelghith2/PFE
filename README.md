@@ -131,7 +131,7 @@ Si vous forkez ce projet pour l'utiliser dans un autre pays ou une autre ville, 
 
 Ouvrez app.py et modifiez les constantes suivantes :
 
-1. Localisation et Météo
+1.Localisation et Météo
 Par défaut, la météo interroge les coordonnées de Paris. Remplacez par vos coordonnées GPS :
 
 LATITUDE = 48.8566         # Remplacez par la latitude de votre ville
@@ -141,7 +141,7 @@ LONGITUDE = 2.3522         # Remplacez par la longitude de votre ville
 TIMEZONE = "Europe/Paris"  # Remplacez par votre fuseau horaire (ex: "America/New_York")
 
 
-2. Jours Fériés et Vacances
+2.Jours Fériés et Vacances
    
 L'API utilise les bases gouvernementales françaises.
    
@@ -151,23 +151,30 @@ ZONE_SCOLAIRE = "C"        # Zones FR : "A", "B", ou "C"
 
 (⚠️ Si vous déployez hors de France, il faudra modifier les URL des APIs dans les fonctions charger_jours_feries_france et charger_vacances_scolaires_officielles pour pointer vers l'Open Data de votre pays).
 
-3. Détection des événements publics
+3.Détection des événements publics
 
 Renseignez la ville pour surveiller l'OpenAgenda local :
 
 DEPARTEMENT = "Paris"      # ex: "Rhône", "Gironde"...
+
 VILLE = None               # Spécifier une ville précise si besoin (ex: "Lyon")
 
-4. Mots-clés des événements majeurs
+4.Mots-clés des événements majeurs
 
 L'algorithme scanne le nom des événements pour évaluer leur impact. Ajoutez des mots-clés spécifiques à votre culture ou région :
 
 BIG_EVENT_KEYWORDS = [
+
    "concert", "festival", "spectacle", "show",
+   
     "champion", "champions league", "ligue des champions",
+    
     "coupe", "cup", "finale", "tournoi", "match",
+    
     "euro", "world cup", "coupe du monde",
+    
     "olympique", "jeu olympique", "jeux olympiques"
+    
     # Ajoutez vos événements locaux majeurs ici (ex: "super bowl", "carnaval")
 ]
 
