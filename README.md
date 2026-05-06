@@ -1,50 +1,44 @@
-# PFE — Prédiction de la demande de réservation avec XGBoost
+# 📈 PFE — Prédiction de la demande de réservation avec XGBoost
+
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Flask](https://img.shields.io/badge/Flask-API-green)
+![XGBoost](https://img.shields.io/badge/XGBoost-Machine%20Learning-orange)
 
 ## 📌 Description du projet
-Ce projet de fin d’études (PFE) a pour objectif de développer un système intelligent capable de **prédire la demande de réservation** selon la **date**, **l’heure** et le **contexte externe**, afin d’aider l’administrateur à mieux gérer l’activité.
+Ce projet de fin d’études (PFE) a pour objectif de développer un système intelligent capable de **prédire la demande de réservation** selon la **date**, **l’heure** et le **contexte externe** (météo, événements, jours fériés), afin d’aider un administrateur à mieux gérer son complexe sportif.
 
 Le système permet notamment de :
-
 - anticiper les périodes de forte et faible demande,
 - améliorer la gestion des réservations,
 - identifier les créneaux où une promotion peut être utile,
-- proposer une décision marketing adaptée à la demande prévue.
+- proposer une **décision marketing automatisée** (Dynamic Pricing) adaptée à la demande prévue.
 
 ---
 
 ## 🎯 Objectifs
-Les objectifs principaux du projet sont :
-
-- analyser les données de réservation,
-- identifier les périodes à forte et faible demande,
-- construire et comparer plusieurs modèles de régression,
-- sélectionner un modèle performant,
-- intégrer le modèle dans une API Flask,
-- aider l’administrateur à prendre une décision marketing.
+- Analyser les données de réservation historiques.
+- Identifier les périodes à forte et faible demande.
+- Construire et comparer plusieurs modèles de régression.
+- Sélectionner un modèle performant (XGBoost).
+- Intégrer le modèle dans une architecture micro-services (API Flask).
+- Aider l’administrateur à prendre des décisions marketing éclairées.
 
 ---
 
 ## 🤖 Modèles étudiés
-Les modèles testés dans ce projet sont :
-
+Les modèles testés dans ce projet lors de la phase de recherche sont :
 - **Random Forest Regressor**
 - **Gradient Boosting Regressor**
-- **XGBoost Regressor**
-
-Le modèle principal retenu pour l’exploitation est **XGBoost**.
+- **XGBoost Regressor** *(🏆 Modèle principal retenu pour l’exploitation en production)*
 
 ---
 
 ## 🛠️ Technologies utilisées
-- **Python**
-- **Jupyter Notebook / Google Colab**
-- **Pandas**
-- **NumPy**
-- **Matplotlib / Seaborn**
-- **Scikit-learn**
-- **XGBoost**
-- **Flask**
-- **Requests**
+- **Langage :** Python
+- **Data Science :** Pandas, NumPy, Matplotlib, Seaborn
+- **Machine Learning :** Scikit-learn, XGBoost
+- **Back-End :** Flask, Requests (pour la connexion aux APIs Open Data)
+- **Environnement :** Jupyter Notebook / Google Colab
 
 ---
 
@@ -52,59 +46,37 @@ Le modèle principal retenu pour l’exploitation est **XGBoost**.
 ```text
 PFE/
 │
-├── README.md
-├── app.py
-├── features_utils.py
-├── Nettoyage_données.ipynb
-├── Préparation_des_données.ipynb
-├── Business_Understanding_Data_Understanding.ipynb
-├── XGBOOST2.ipynb
-└── xgboost_model.pkl
-
-Description des fichiers
-README.md : documentation du projet
-app.py : API Flask permettant d’utiliser le modèle en temps réel
-features_utils.py : fonctions utilitaires partagées (temps, événements, formatage…)
-Nettoyage_données.ipynb : nettoyage et préparation initiale des données
-Préparation_des_données.ipynb : enrichissement des données
-Business_Understanding_Data_Understanding.ipynb : compréhension métier et compréhension des données
-xgboost_model.pkl : modèle final sauvegardé
+├── README.md                                       # Documentation du projet
+├── app.py                                          # API Flask (Serveur de production)
+├── features_utils.py                               # Fonctions utilitaires partagées
+├── Nettoyage_données.ipynb                         # Préparation initiale des données
+├── Préparation_des_données.ipynb                   # Enrichissement des données
+├── Business_Understanding_Data_Understanding.ipynb # Compréhension métier et données
+├── XGBOOST2.ipynb                                  # Entraînement et évaluation du modèle
+└── xgboost_model.pkl                               # Modèle IA final sauvegardé
 ```
----
 
-⚙️ Étapes du projet
+⚙️Étapes du projet
 
-Le projet suit plusieurs étapes :
-
-1)Collecte et préparation des données
-
-2)Analyse exploratoire
-
-3)Prétraitement des variables
-
-4)Création de nouvelles variables (feature engineering)
-
-5)Entraînement du modèle XGBoost
-
-6)Évaluation des performances
-
-7)Intégration du modèle dans une API Flask
-
-8)Génération d’une recommandation marketing
+1. Collecte et preparation des données
+2. Analyse exploratoire
+3. Pretraitement des variables
+4. Création de nouvelles variables (Feature Engineering temporel et externe)
+5. Entraînement du modèle XGBoost (avec gestion de la sur-représentation des pics)
+6. Evaluation des performances (Tests internes et tests externes "Zero-Shot")
+7. Integration du modele dans une API Flask
+8. Génération d'une recommandation marketing (Règles métier)
 
 ---
 
-🚀 Installation
-1) Cloner le dépôt
+🚀 Installation & Lancement
+1. Cloner le dépôt
 git clone https://github.com/VOTRE_USERNAME/PFE.git
 cd PFE
-2) Installer les dépendances
+
+2.Installer les dépendances
 pip install -r requirements.txt
-3) Vérifier que les fichiers nécessaires sont présents
-Assurez-vous d’avoir dans le dossier du projet :
-app.py
-features_utils.py
-xgboost_model.pkl
+
 ---
 
 ▶️ Lancer l’API Flask
@@ -114,21 +86,15 @@ http://127.0.0.1:5000
 
 ---
 
-📡 Routes disponibles
-1) /predict
-Permet de prédire la demande et de proposer une décision marketing.
+📡 Routes d'API disponibles
+L'architecture est construite en micro-services :
 
-2) /meteo
-Retourne la météo associée à une date et une heure.
+•POST /predict : Prédit la demande et propose une décision marketing (taux, niveau, promo).
+•POST /meteo : Retourne la météo réelle ou prévue associée à une date et une heure.
+•POST /jour_ferie : Indique si une date est un jour férié en France.
+•POST /vacances : Indique si une date tombe pendant les vacances scolaires (Zone C).
+•POST /evenement : Retourne les gros événements locaux détectés pour une date donnée.
 
-3) /jour_ferie
-Indique si une date est un jour férié et/ou tombe pendant les vacances scolaires.
-
-4) /vacances
-Indique si une date est en vacances scolaires.
-
-5) /evenement
-Retourne les événements détectés pour une date donnée.
 ---
 
 🧠 Fonctionnement général
@@ -153,87 +119,61 @@ Le système fonctionne en plusieurs étapes :
 
 ---
 
-🔧 Paramètres à modifier dans app.py
+🔧 Configuration : Comment adapter ce projet pour votre ville ?
 
-1)Localisation météo
+Le modèle actuel est configuré pour être un "Expert de Paris (France)".
+
+Si vous forkez ce projet pour l'utiliser dans un autre pays ou une autre ville, vous devez modifier le bloc de Configuration situé tout en haut du fichier app.py.
+
+Ouvrez app.py et modifiez les constantes suivantes :
+
+1. Localisation et Météo
+Par défaut, la météo interroge les coordonnées de Paris. Remplacez par vos coordonnées GPS :
+
+LATITUDE = 48.8566         # Remplacez par la latitude de votre ville
+LONGITUDE = 2.3522         # Remplacez par la longitude de votre ville
+TIMEZONE = "Europe/Paris"  # Remplacez par votre fuseau horaire (ex: "America/New_York")
+
+
+2. Jours Fériés et Vacances
+L'API utilise les bases gouvernementales françaises.
    
-Modifier :
+ZONE_FERIES = "metropole"  # Options FR : "alsace-moselle", "guadeloupe", etc.
+ZONE_SCOLAIRE = "C"        # Zones FR : "A", "B", ou "C"
 
-LATITUDE = .....
-LONGITUDE = .....
-TIMEZONE = "Europe/Paris"
+(⚠️ Si vous déployez hors de France, il faudra modifier les URL des APIs dans les fonctions charger_jours_feries_france et charger_vacances_scolaires_officielles pour pointer vers l'Open Data de votre pays).
 
-➡️ Remplacer par la latitude, la longitude et le fuseau horaire de la ville concernée.
+3. Détection des événements publics
 
-2)Vacances scolaires
-   
-Modifier :
+Renseignez la ville pour surveiller l'OpenAgenda local :
 
-ZONE_SCOLAIRE = "C"
+DEPARTEMENT = "Paris"      # ex: "Rhône", "Gironde"...
+VILLE = None               # Spécifier une ville précise si besoin (ex: "Lyon")
 
-➡️ La logique actuelle est basée sur le calendrier scolaire français.
+4. Mots-clés des événements majeurs
 
-Si le pays n’utilise pas ce système, il faudra :
+L'algorithme scanne le nom des événements pour évaluer leur impact. Ajoutez des mots-clés spécifiques à votre culture ou région :
 
--remplacer la source
-
--ou modifier complètement la logique de vacances scolaires
-
-3)Jours fériés
-
-Modifier :
-
-ZONE_FERIES = "metropole"
-
-➡️ La logique actuelle correspond aux jours fériés français.
-
-Pour un autre pays, il faudra utiliser une source locale adaptée.
-
-4)Événements publics
-
-Modifier :
-
-DEPARTEMENT = "Paris"
-VILLE = None
-
-➡️ Ces paramètres servent à cibler les événements détectés.
-
-Pour une autre utilisation, remplacer par :
--la ville concernée
--la région concernée
--ou adapter complètement la logique si le pays ne fonctionne pas avec ces champs
-
-5)Mots-clés d’événements
-   
-Modifier:
-
-BIG_EVENT_KEYWORDS = [...]
-
-➡️ Cette liste contient les mots-clés utilisés pour repérer les événements importants.
-
-Exemples actuels :
-concert
-festival
-finale
-tournoi
-match
-olympique
-
-Si le projet est utilisé dans un autre pays, il faudra :
-
-garder les mots-clés utiles,
-supprimer ceux qui ne servent pas,
-ajouter des mots-clés locaux
+BIG_EVENT_KEYWORDS = [
+   "concert", "festival", "spectacle", "show",
+    "champion", "champions league", "ligue des champions",
+    "coupe", "cup", "finale", "tournoi", "match",
+    "euro", "world cup", "coupe du monde",
+    "olympique", "jeu olympique", "jeux olympiques"
+    # Ajoutez vos événements locaux majeurs ici (ex: "super bowl", "carnaval")
+]
 
 ---
 ## 📊 Résultats attendus
 Le système permet d’obtenir automatiquement :
 
-- un **taux de remplissage prévu**,
-- un **niveau de demande** (*faible, moyenne, forte, très forte*),
-- une **détection du contexte externe** (météo, vacances, jours fériés, événements),
-- une **décision marketing** sous forme de recommandation de promotion.
-Exemple de logique métier
+Lors d'un appel à /predict, le système génère :
+
+•Un taux de remplissage prévu (ex: 82%).
+•Un niveau de demande (faible, moyenne, forte, très forte).
+•La détection du contexte (météo pluvieuse, vacances actives, match ce soir).
+•Une décision marketing (Dynamic Pricing).
+Exemple de logique métier:
 
 si la demande prévue est faible → proposer une promotion,
 
@@ -243,7 +183,6 @@ si le terrain est outdoor et que la météo est défavorable → ajuster la déc
 
 ---
 ✅ Avantages du système
-Ce système permet à l’administrateur de :
 
 mieux anticiper la demande,
 
@@ -257,17 +196,17 @@ automatiser partiellement la logique marketing.
 
 ---
 ⚠️ Limites actuelles
-Le projet présente encore certaines limites :
+•Le projet présente encore certaines limites :
 
-le modèle a été entraîné sur un contexte géographique précis,
+•le modèle a été entraîné sur un contexte géographique précis,
 
-certaines règles métier sont encore définies manuellement,
+•certaines règles métier sont encore définies manuellement,
 
-la logique des événements dépend des données disponibles dans les APIs externes,
+•la logique des événements dépend des données disponibles dans les APIs externes,
 
-la météo future peut être indisponible trop loin dans le temps,
+•la météo future peut être indisponible trop loin dans le temps,
 
-la généralisation à d’autres villes ou pays nécessite des adaptations.
+•la généralisation à d’autres villes ou pays nécessite des adaptations.
 
 ---
 👩‍💻 Auteur
