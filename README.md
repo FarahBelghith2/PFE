@@ -145,17 +145,17 @@ Le système fonctionne en plusieurs étapes :
 
 3.Les variables nécessaires au modèle sont construites automatiquement
 
-4. Le modèle prédit un taux de demande / remplissage relatif
-  
-5. Ce taux est interprété sous forme de niveau de demande (faible, moyenne, forte, très forte)
-  
-6. Une décision marketing est générée selon la demande estimée
+4.Le modèle prédit un taux de demande / remplissage relatif
+
+5.Ce taux est interprété sous forme de niveau de demande (faible, moyenne, forte, très forte)
+
+6.Une décision marketing est générée selon la demande estimée
 
 ---
 
 🔧 Paramètres à modifier dans app.py
 
-1) Localisation météo
+1)Localisation météo
    
 Modifier :
 
@@ -165,7 +165,7 @@ TIMEZONE = "Europe/Paris"
 
 ➡️ Remplacer par la latitude, la longitude et le fuseau horaire de la ville concernée.
 
-2) Vacances scolaires
+2)Vacances scolaires
    
 Modifier :
 
@@ -179,7 +179,7 @@ Si le pays n’utilise pas ce système, il faudra :
 
 -ou modifier complètement la logique de vacances scolaires
 
-3) Jours fériés
+3)Jours fériés
 
 Modifier :
 
@@ -189,7 +189,7 @@ ZONE_FERIES = "metropole"
 
 Pour un autre pays, il faudra utiliser une source locale adaptée.
 
-4) Événements publics
+4)Événements publics
 
 Modifier :
 
@@ -203,7 +203,7 @@ Pour une autre utilisation, remplacer par :
 -la région concernée
 -ou adapter complètement la logique si le pays ne fonctionne pas avec ces champs
 
-5) Mots-clés d’événements
+5)Mots-clés d’événements
    
 Modifier:
 
@@ -236,7 +236,9 @@ Le système permet d’obtenir automatiquement :
 Exemple de logique métier
 
 si la demande prévue est faible → proposer une promotion,
+
 si la demande est forte → ne pas proposer de réduction,
+
 si le terrain est outdoor et que la météo est défavorable → ajuster la décision marketing.
 
 ---
@@ -244,9 +246,13 @@ si le terrain est outdoor et que la météo est défavorable → ajuster la déc
 Ce système permet à l’administrateur de :
 
 mieux anticiper la demande,
+
 mieux gérer les créneaux horaires,
+
 améliorer l’occupation des terrains,
+
 prendre des décisions plus rapides,
+
 automatiser partiellement la logique marketing.
 
 ---
@@ -254,11 +260,16 @@ automatiser partiellement la logique marketing.
 Le projet présente encore certaines limites :
 
 le modèle a été entraîné sur un contexte géographique précis,
+
 certaines règles métier sont encore définies manuellement,
+
 la logique des événements dépend des données disponibles dans les APIs externes,
+
 la météo future peut être indisponible trop loin dans le temps,
+
 la généralisation à d’autres villes ou pays nécessite des adaptations.
 
 ---
 👩‍💻 Auteur
+
 Projet réalisé dans le cadre d’un Projet de Fin d’Études (PFE).
