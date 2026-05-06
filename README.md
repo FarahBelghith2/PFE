@@ -146,7 +146,7 @@ TIMEZONE = "Europe/Paris"
 
 ➡️ Remplacer par la latitude, la longitude et le fuseau horaire de la ville concernée.
 
-3) Vacances scolaires
+2) Vacances scolaires
 Modifier :
 ZONE_SCOLAIRE = "C"
 
@@ -155,12 +155,12 @@ ZONE_SCOLAIRE = "C"
 Si le pays n’utilise pas ce système, il faudra :
 -remplacer la source
 -ou modifier complètement la logique de vacances scolaires
-4) Jours fériés
+3) Jours fériés
 Modifier :
 ZONE_FERIES = "metropole"
 ➡️ La logique actuelle correspond aux jours fériés français.
 Pour un autre pays, il faudra utiliser une source locale adaptée.
-5) Événements publics
+4) Événements publics
 Modifier :
 DEPARTEMENT = "Paris"
 VILLE = None
