@@ -75,14 +75,14 @@ xgboost_model.pkl : modèle final sauvegardé
 ⚙️ Étapes du projet
 Le projet suit plusieurs étapes :
 
-1.Collecte et préparation des données
-2.Analyse exploratoire
-3.Prétraitement des variables
-4.Création de nouvelles variables (feature engineering)
-5.Entraînement du modèle XGBoost
-6.Évaluation des performances
-7.Intégration du modèle dans une API Flask
-8Génération d’une recommandation marketing
+1)Collecte et préparation des données
+2)Analyse exploratoire
+3)Prétraitement des variables
+4)Création de nouvelles variables (feature engineering)
+5)Entraînement du modèle XGBoost
+6)Évaluation des performances
+7)Intégration du modèle dans une API Flask
+8)Génération d’une recommandation marketing
 
 ---
 
